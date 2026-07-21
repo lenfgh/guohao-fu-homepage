@@ -451,18 +451,16 @@ export default function Home() {
           </div>
 
           <aside className="profile-panel" aria-label={c.profileLabel}>
-            <div className="research-portrait" aria-hidden="true">
-              <div className="portrait-grid" />
-              <span className="orbit orbit-one" />
-              <span className="orbit orbit-two" />
-              <span className="connector connector-one" />
-              <span className="connector connector-two" />
-              <span className="node node-one" />
-              <span className="node node-two" />
-              <span className="node node-three" />
-              <span className="node node-four" />
-              <span className="portrait-initials">GF</span>
-              <span className="portrait-caption">graphs × modalities × biology</span>
+            <div className="research-portrait profile-photo">
+              <img
+                src="guohao-waterfall.jpg"
+                alt={
+                  language === "zh"
+                    ? "傅国浩在冰瀑前的生活照"
+                    : "Guohao Fu standing in front of an ice waterfall"
+                }
+              />
+              <span className="portrait-caption">{c.outsideLab}</span>
             </div>
             <div className="profile-name">
               <div>

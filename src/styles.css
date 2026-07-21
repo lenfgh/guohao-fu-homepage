@@ -348,6 +348,34 @@ button {
     linear-gradient(145deg, #0e2e4a 0%, #174f78 58%, #173c58 100%);
 }
 
+.profile-photo {
+  aspect-ratio: 3 / 4;
+  min-height: 0;
+  background: var(--night);
+}
+
+.profile-photo::after {
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(transparent, rgba(8, 20, 31, 0.56));
+  content: "";
+  pointer-events: none;
+}
+
+.profile-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.profile-photo .portrait-caption {
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 10px rgba(8, 20, 31, 0.65);
+}
+
 .portrait-grid {
   position: absolute;
   inset: 0;
