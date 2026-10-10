@@ -42,7 +42,10 @@ h1 span { color: var(--muted); font-size: 23px; font-weight: 400; letter-spacing
 .affiliation { margin-top: 14px; font-size: 14px; line-height: 1.7; }
 .portrait { grid-column: 1; grid-row: 1 / 3; width: 164px; height: 208px; overflow: hidden; border-radius: 5px; box-shadow: 0 0 0 5px #f1f5f8; }
 .portrait img { display: block; width: 164px; height: 208px; object-fit: cover; object-position: 50% 68%; transform: scale(1.85); transform-origin: 47% 70%; }
-.intro-body { grid-column: 2; padding-top: 22px; font-size: 14px; line-height: 1.8; }
+.intro-body { grid-column: 2; padding-top: 14px; font-size: 14px; line-height: 1.8; }
+.intro-description { color: #454545; font-size: 14px; line-height: 1.85; }
+.intro-description p + p { margin-top: 9px; }
+.intro-description + .profile-links { margin-top: 15px; }
 .profile-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 25px; font-size: 14px; }
 .profile-links a { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 6px 0; line-height: 24px; }
 .profile-links .icon { display: block; width: 20px; height: 20px; }

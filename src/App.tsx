@@ -22,6 +22,8 @@ const copy = {
     skip: "跳到主要内容", nav: "主要导航", language: "语言选择",
     about: "简介", publications: "论文", experience: "教育", contact: "联系",
     name: "傅国浩", otherName: "Guohao Fu", affiliation: "北京理工大学 · 本科生",
+    interests: "我的研究兴趣包括多模态学习、具身智能与 AI for Science。",
+    introduction: "这里记录了我参与的一些工作，欢迎交流想法，也欢迎分享你正在探索的问题。",
     email: "邮件", cv: "简历", wechat: "微信",
     photo: "傅国浩在冰瀑前",
     authorNote: "# 共同贡献 · * 通讯作者",
@@ -32,6 +34,8 @@ const copy = {
     skip: "Skip to main content", nav: "Primary navigation", language: "Language selection",
     about: "About", publications: "Publications", experience: "Education", contact: "Contact",
     name: "Guohao Fu", otherName: "傅国浩", affiliation: "Undergraduate · Beijing Institute of Technology",
+    interests: "My research interests include multimodal learning, embodied AI, and AI for Science.",
+    introduction: "This page brings together some of the work I've contributed to. Feel free to get in touch and share what you're working on.",
     email: "Email", cv: "CV", wechat: "WeChat",
     photo: "Guohao Fu in front of an ice waterfall",
     authorNote: "# Equal contribution · * Corresponding author",
@@ -81,6 +85,10 @@ export default function Home() {
             <img src="guohao-waterfall.jpg" alt={c.photo} width="164" height="208" fetchPriority="high" />
           </figure>
           <div className="intro-body">
+            <div className="intro-description">
+              <p>{c.interests}</p>
+              <p>{c.introduction}</p>
+            </div>
             <div className="profile-links">
               <a href="mailto:lenfu674@gmail.com"><Icon name="mail" />{c.email}</a>
               <a href="https://github.com/lenfgh" {...externalProps}><Icon name="github" />GitHub</a>
