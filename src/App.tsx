@@ -5,13 +5,14 @@ const languageStorageKey = "guohao-site-language";
 const externalProps = { target: "_blank", rel: "noreferrer noopener" };
 const publicationYears = Array.from(new Set(publications.map((paper) => paper.publishedAt.slice(0, 4))));
 
-function Icon({ name }: { name: "mail" | "code" | "file" | "arrow" | "chat" }) {
+function Icon({ name }: { name: "mail" | "github" | "file" | "arrow" | "wechat" }) {
+  if (name === "github" || name === "wechat") {
+    return <span className={`icon brand-icon brand-icon-${name}`} aria-hidden="true" />;
+  }
   const paths = {
     mail: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 6 9 7 9-7" /></>,
-    code: <><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-14-2 16" /></>,
     file: <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" /><path d="M14 2v6h6M8 13h8m-8 4h5" /></>,
     arrow: <><path d="M6 18 18 6M6 6h12v12" /></>,
-    chat: <><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8A8.5 8.5 0 0 1 12.5 20a8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z" /><path d="M8 11h.01M12 11h.01M16 11h.01" /></>,
   };
   return <svg className="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">{paths[name]}</svg>;
 }
@@ -21,7 +22,6 @@ const copy = {
     skip: "跳到主要内容", nav: "主要导航", language: "语言选择",
     about: "简介", publications: "论文", experience: "教育", contact: "联系",
     name: "傅国浩", otherName: "Guohao Fu", affiliation: "北京理工大学 · 本科生",
-    intro: "我目前就读于北京理工大学未来精工技术专业。",
     email: "邮件", cv: "简历", wechat: "微信",
     photo: "傅国浩在冰瀑前",
     authorNote: "# 共同贡献 · * 通讯作者",
@@ -32,7 +32,6 @@ const copy = {
     skip: "Skip to main content", nav: "Primary navigation", language: "Language selection",
     about: "About", publications: "Publications", experience: "Education", contact: "Contact",
     name: "Guohao Fu", otherName: "傅国浩", affiliation: "Undergraduate · Beijing Institute of Technology",
-    intro: "I am an undergraduate in Future Precision Technology at Beijing Institute of Technology.",
     email: "Email", cv: "CV", wechat: "WeChat",
     photo: "Guohao Fu in front of an ice waterfall",
     authorNote: "# Equal contribution · * Corresponding author",
@@ -82,10 +81,9 @@ export default function Home() {
             <img src="guohao-waterfall.jpg" alt={c.photo} width="164" height="208" fetchPriority="high" />
           </figure>
           <div className="intro-body">
-            <p>{c.intro}</p>
             <div className="profile-links">
               <a href="mailto:lenfu674@gmail.com"><Icon name="mail" />{c.email}</a>
-              <a href="https://github.com/lenfgh" {...externalProps}><Icon name="code" />GitHub</a>
+              <a href="https://github.com/lenfgh" {...externalProps}><Icon name="github" />GitHub</a>
               <a href="guohao-fu-cv.pdf" {...externalProps}><Icon name="file" />{c.cv}</a>
             </div>
           </div>
@@ -129,7 +127,7 @@ export default function Home() {
           <div>
             <dl className="contact-list">
               <div><dt><Icon name="mail" />{c.email}</dt><dd><a href="mailto:lenfu674@gmail.com">lenfu674@gmail.com</a></dd></div>
-              <div><dt><Icon name="chat" />{c.wechat}</dt><dd><span className="wechat-id">QDZM5296</span></dd></div>
+              <div><dt><Icon name="wechat" />{c.wechat}</dt><dd><span className="wechat-id">QDZM5296</span></dd></div>
             </dl>
           </div>
         </section>
