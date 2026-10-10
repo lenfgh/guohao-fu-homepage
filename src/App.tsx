@@ -39,7 +39,7 @@ const copy = {
       "我目前在北京理工大学学习未来精工技术，并分别在多元学科高等研究院与计算机学院开展科研。一路从微生物转录组预测走向联邦多模态图学习，我关心的是同一件事：",
     aboutStrong: "如何从分散、异构且受约束的数据中学到可靠知识。",
     aboutTwo:
-      "我的工作覆盖从数据清洗、模型实现到大规模评测与论文修订的完整流程。近期参与 Simple-WAM 的真机实验与部分仿真实验，同时继续探索联邦多模态图基础模型、任务亲和聚合与科学问题中的表示学习。",
+      "我的工作覆盖从数据清洗、模型实现到大规模评测与论文修订的完整流程。在清华大学 LeapLab 黄高课题组，接受周韧平、倪赞林指导，参与 Simple-WAM 的真机实验与部分仿真实验，同时继续探索联邦多模态图基础模型、任务亲和聚合与科学问题中的表示学习。",
     quickFacts: [
       "中国 · 北京",
       "CET-4 · 592",
@@ -105,7 +105,7 @@ const copy = {
       "I study Future Precision Technology at Beijing Institute of Technology and conduct research with both the Advanced Research Institute of Multidisciplinary Science and the School of Computer Science. From microbial transcriptome prediction to federated multimodal graph learning, one question connects my work: ",
     aboutStrong: "how can we learn reliable knowledge from distributed, heterogeneous, and constrained data?",
     aboutTwo:
-      "My work spans the full research pipeline, from data curation and model implementation to large-scale evaluation and manuscript revision. Recently, I contributed real-world experiments and a subset of the simulation experiments to Simple-WAM, alongside my work on federated multimodal graph foundation models, task-affinity aggregation, and representations for scientific problems.",
+      "My work spans the full research pipeline, from data curation and model implementation to large-scale evaluation and manuscript revision. At LeapLab, Tsinghua University (Gao Huang’s group), I contributed real-world experiments and a subset of the simulation experiments to Simple-WAM under the guidance of Renping Zhou and Zanlin Ni, alongside my work on federated multimodal graph foundation models, task-affinity aggregation, and representations for scientific problems.",
     quickFacts: [
       "Beijing, China",
       "CET-4 · 592",
@@ -201,8 +201,8 @@ const publications = [
     ),
     venue: { zh: "arXiv 预印本, 2026", en: "arXiv preprint, 2026" },
     role: {
-      zh: "第四作者 · 真机实验及部分仿真实验",
-      en: "Fourth author · Real-world experiments & simulation contributions",
+      zh: "第四作者 · LeapLab · 真机实验及部分仿真实验",
+      en: "Fourth author · LeapLab · Real-world experiments & simulation contributions",
     },
     summary: {
       zh: "Simple-WAM 通过对全噪声未来视频 token 的单次前向计算保留未来表征条件，在环境扰动、少样本与新任务设置下研究世界动作模型的泛化能力，兼顾泛化与推理效率。",
@@ -336,6 +336,21 @@ const journey: Array<{
       en: "Contributing to FedGAMMA, FedM3G, and MM-OpenFGL through model implementation, unified experimental pipelines, and large-scale systematic evaluation.",
     },
   },
+  {
+    date: { zh: "Simple-WAM · 2026", en: "Simple-WAM · 2026" },
+    title: {
+      zh: "世界动作模型研究 · Simple-WAM",
+      en: "World Action Model Research · Simple-WAM",
+    },
+    org: {
+      zh: "清华大学 LeapLab · 黄高课题组",
+      en: "LeapLab, Tsinghua University · Gao Huang’s Group",
+    },
+    detail: {
+      zh: "合作指导：周韧平、倪赞林。负责 Simple-WAM 的真机实验及部分仿真实验，研究测试时未来建模对机器人策略泛化的影响。",
+      en: "Guided by Renping Zhou and Zanlin Ni. Responsible for real-world experiments and a subset of the simulation experiments for Simple-WAM, studying the effect of test-time future modeling on robot policy generalization.",
+    },
+  },
 ];
 
 const news = [
@@ -343,8 +358,8 @@ const news = [
     date: "2026.09",
     title: { zh: "Simple-WAM 预印本公开", en: "Simple-WAM preprint released" },
     detail: {
-      zh: "参与世界动作模型泛化研究，负责真机实验及部分仿真实验。",
-      en: "Coauthored a study of world action model generalization, contributing real-world experiments and a subset of the simulation experiments.",
+      zh: "在清华大学 LeapLab 黄高课题组完成，负责真机实验及部分仿真实验。",
+      en: "Work carried out at LeapLab, Tsinghua University (Gao Huang’s group), with contributions to real-world experiments and a subset of the simulation experiments.",
     },
   },
   {
