@@ -695,6 +695,10 @@ button {
   transition: background 220ms ease, color 220ms ease;
 }
 
+.research-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 .research-card:hover {
   background: var(--night);
   color: #fff;

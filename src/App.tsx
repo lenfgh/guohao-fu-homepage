@@ -12,11 +12,11 @@ const copy = {
     navLabel: "主要导航",
     languageLabel: "语言选择",
     nav: ["简介", "研究", "论文", "经历", "随笔 ↗", "联系"],
-    eyebrow: "联邦学习 · 图学习 · AI for Science",
+    eyebrow: "世界动作模型 · 图学习 · AI for Science",
     heroLead: "跨越图与模态，",
     heroEmphasis: "也跨越基因组。",
     heroIntroBefore: "我是傅国浩，北京理工大学本科生。我的研究连接",
-    heroResearch: "联邦学习、多模态图学习、图基础模型",
+    heroResearch: "世界动作模型、联邦学习与多模态图学习",
     heroIntroMiddle: "与",
     heroBiology: "计算生物学",
     heroIntroAfter: "，希望构建既能迁移、又能在真实约束下可靠工作的学习系统。",
@@ -28,7 +28,7 @@ const copy = {
     affiliation: "所属院校",
     affiliationValue: "北京理工大学",
     focus: "研究重点",
-    focusValue: "联邦多模态学习",
+    focusValue: "世界动作模型 · 联邦多模态学习",
     openTo: "期待",
     openToValue: "科研交流与合作",
     metricsLabel: "研究数据概览",
@@ -39,7 +39,7 @@ const copy = {
       "我目前在北京理工大学学习未来精工技术，并分别在多元学科高等研究院与计算机学院开展科研。一路从微生物转录组预测走向联邦多模态图学习，我关心的是同一件事：",
     aboutStrong: "如何从分散、异构且受约束的数据中学到可靠知识。",
     aboutTwo:
-      "我的工作覆盖从数据清洗、模型实现到大规模评测与论文修订的完整流程。近期重点是联邦多模态图基础模型、任务亲和聚合，以及可迁移到科学问题中的表示学习方法。",
+      "我的工作覆盖从数据清洗、模型实现到大规模评测与论文修订的完整流程。近期参与 Simple-WAM 的真机实验与部分仿真实验，同时继续探索联邦多模态图基础模型、任务亲和聚合与科学问题中的表示学习。",
     quickFacts: [
       "中国 · 北京",
       "CET-4 · 592",
@@ -67,7 +67,7 @@ const copy = {
     readJournal: "阅读随笔",
     contactLabel: "联系",
     contactTitle: "一起做严谨而有用的研究。",
-    contactText: "如果你也在研究联邦学习、多模态图模型或 AI for Science，欢迎交流想法与合作机会。",
+    contactText: "如果你也在研究世界动作模型、联邦学习、多模态图模型或 AI for Science，欢迎交流想法与合作机会。",
     downloadCv: "下载简历",
     footerNote: "研究属于 Guohao，随笔属于 Len。",
     backTop: "返回顶部 ↑",
@@ -78,11 +78,11 @@ const copy = {
     navLabel: "Primary navigation",
     languageLabel: "Language selection",
     nav: ["About", "Research", "Publications", "Journey", "Journal ↗", "Contact"],
-    eyebrow: "Federated Learning · Graphs · AI for Science",
+    eyebrow: "World Action Models · Graphs · AI for Science",
     heroLead: "Learning across graphs,",
     heroEmphasis: "modalities, and genomes.",
     heroIntroBefore: "I am Guohao Fu, an undergraduate at Beijing Institute of Technology. My research connects",
-    heroResearch: "federated learning, multimodal graph learning, and graph foundation models",
+    heroResearch: "world action models, federated learning, and multimodal graph learning",
     heroIntroMiddle: "with",
     heroBiology: "computational biology",
     heroIntroAfter: ", with the goal of building transferable learning systems that remain reliable under real-world constraints.",
@@ -94,7 +94,7 @@ const copy = {
     affiliation: "Affiliation",
     affiliationValue: "Beijing Institute of Technology",
     focus: "Focus",
-    focusValue: "Federated multimodal learning",
+    focusValue: "World action models · Federated multimodal learning",
     openTo: "Open to",
     openToValue: "Research collaboration",
     metricsLabel: "Research at a glance",
@@ -105,7 +105,7 @@ const copy = {
       "I study Future Precision Technology at Beijing Institute of Technology and conduct research with both the Advanced Research Institute of Multidisciplinary Science and the School of Computer Science. From microbial transcriptome prediction to federated multimodal graph learning, one question connects my work: ",
     aboutStrong: "how can we learn reliable knowledge from distributed, heterogeneous, and constrained data?",
     aboutTwo:
-      "My work spans the full research pipeline, from data curation and model implementation to large-scale evaluation and manuscript revision. I am currently focused on federated multimodal graph foundation models, task-affinity aggregation, and representations that transfer to scientific problems.",
+      "My work spans the full research pipeline, from data curation and model implementation to large-scale evaluation and manuscript revision. Recently, I contributed real-world experiments and a subset of the simulation experiments to Simple-WAM, alongside my work on federated multimodal graph foundation models, task-affinity aggregation, and representations for scientific problems.",
     quickFacts: [
       "Beijing, China",
       "CET-4 · 592",
@@ -133,7 +133,7 @@ const copy = {
     readJournal: "Read the journal",
     contactLabel: "Contact",
     contactTitle: "Let’s build something rigorous — and useful.",
-    contactText: "If you are also working on federated learning, multimodal graph models, or AI for Science, I would be glad to exchange ideas and explore collaboration.",
+    contactText: "If you are also working on world action models, federated learning, multimodal graph models, or AI for Science, I would be glad to exchange ideas and explore collaboration.",
     downloadCv: "Download CV",
     footerNote: "Research by Guohao. Notes by Len.",
     backTop: "Back to top ↑",
@@ -177,11 +177,45 @@ const researchAreas: Array<{
       en: "Learning microbial transcriptional regulation and expression patterns from genomes and protein language models.",
     },
   },
+  {
+    number: "05",
+    title: { zh: "世界动作模型", en: "World Action Models" },
+    description: {
+      zh: "探索未来表征对机器人策略泛化与推理效率的影响，并通过真机与仿真实验进行评测。",
+      en: "Exploring how future representations affect robot policy generalization and inference efficiency through real-world and simulation evaluation.",
+    },
+  },
 ];
 
 const publications = [
   {
     index: "01",
+    mark: "WAM",
+    tone: "blue",
+    title: "What Makes World Action Models Generalize? An Empirical Study of Test-Time Future Modeling",
+    authors: (
+      <>
+        Renping Zhou<sup>#</sup>, Zanlin Ni<sup>#</sup>, Zihao Fan, <strong>Guohao Fu</strong>,
+        Zeyu Liu, Hao Shi, Jie Zhang, Chi Bene Chen, Yang Yue, Xueyang Fu, Gao Huang
+      </>
+    ),
+    venue: { zh: "arXiv 预印本, 2026", en: "arXiv preprint, 2026" },
+    role: {
+      zh: "第四作者 · 真机实验及部分仿真实验",
+      en: "Fourth author · Real-world experiments & simulation contributions",
+    },
+    summary: {
+      zh: "Simple-WAM 通过对全噪声未来视频 token 的单次前向计算保留未来表征条件，在环境扰动、少样本与新任务设置下研究世界动作模型的泛化能力，兼顾泛化与推理效率。",
+      en: "Simple-WAM retains future conditioning with a single forward pass over fully noised video tokens, studying world action model generalization under environmental perturbations, limited demonstrations, and unseen tasks while balancing generalization and inference efficiency.",
+    },
+    links: [
+      { label: "arXiv", href: "https://arxiv.org/abs/2609.34981" },
+      { label: "Project", href: "https://zrporz.github.io/Simple-WAM-Web/" },
+      { label: "Code", href: "https://github.com/LeapLabTHU/Simple-WAM" },
+    ],
+  },
+  {
+    index: "02",
     mark: "TX",
     tone: "blue",
     title: "Predicting Microbial Transcriptome Using Annotated Genome Sequence",
@@ -206,7 +240,7 @@ const publications = [
     ],
   },
   {
-    index: "02",
+    index: "03",
     mark: "MM",
     tone: "gold",
     title: "MM-OpenFGL: A Comprehensive Benchmark for Multimodal Federated Graph Learning",
@@ -228,7 +262,7 @@ const publications = [
     links: [{ label: "arXiv", href: "https://arxiv.org/abs/2601.22416" }],
   },
   {
-    index: "03",
+    index: "04",
     mark: "Γ",
     tone: "green",
     title: "Toward Federated Multimodal Graph Foundation Models: A Topology-Aware Multimodal Alignment Framework",
@@ -305,6 +339,14 @@ const journey: Array<{
 ];
 
 const news = [
+  {
+    date: "2026.09",
+    title: { zh: "Simple-WAM 预印本公开", en: "Simple-WAM preprint released" },
+    detail: {
+      zh: "参与世界动作模型泛化研究，负责真机实验及部分仿真实验。",
+      en: "Coauthored a study of world action model generalization, contributing real-world experiments and a subset of the simulation experiments.",
+    },
+  },
   {
     date: "2026.07",
     title: { zh: "FedGAMMA 预印本公开", en: "FedGAMMA preprint released" },
@@ -478,7 +520,7 @@ export default function Home() {
         </section>
 
         <section className="metrics" aria-label={c.metricsLabel}>
-          {["3", "4,896", "19", "57"].map((value, index) => (
+          {[String(publications.length), "4,896", "19", "57"].map((value, index) => (
             <div key={value}>
               <strong>{value}</strong>
               <span>{c.metricLabels[index]}</span>
