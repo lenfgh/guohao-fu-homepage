@@ -3,6 +3,18 @@ import { journey, publications, type Language } from "./data";
 
 const languageStorageKey = "guohao-site-language";
 const externalProps = { target: "_blank", rel: "noreferrer noopener" };
+const publicationYears = Array.from(new Set(publications.map((paper) => paper.publishedAt.slice(0, 4))));
+
+function Icon({ name }: { name: "mail" | "code" | "file" | "arrow" | "chat" }) {
+  const paths = {
+    mail: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 6 9 7 9-7" /></>,
+    code: <><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-14-2 16" /></>,
+    file: <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" /><path d="M14 2v6h6M8 13h8m-8 4h5" /></>,
+    arrow: <><path d="M6 18 18 6M6 6h12v12" /></>,
+    chat: <><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8A8.5 8.5 0 0 1 12.5 20a8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z" /><path d="M8 11h.01M12 11h.01M16 11h.01" /></>,
+  };
+  return <svg className="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">{paths[name]}</svg>;
+}
 
 const copy = {
   zh: {
@@ -10,22 +22,22 @@ const copy = {
     about: "简介", publications: "论文", experience: "教育", contact: "联系",
     name: "傅国浩", otherName: "Guohao Fu", affiliation: "北京理工大学 · 本科生",
     intro: "我目前就读于北京理工大学未来精工技术专业。",
-    email: "邮件", blog: "博客", cv: "简历", wechat: "微信",
+    email: "邮件", cv: "简历", wechat: "微信",
     photo: "傅国浩在冰瀑前",
-    authorNote: "# 共同贡献 · * 通讯作者", abstract: "摘要与贡献",
+    authorNote: "# 共同贡献 · * 通讯作者",
     education: "教育经历",
-    contactText: "可以通过邮件或微信联系我。", backTop: "回到顶部 ↑",
+    backTop: "回到顶部 ↑",
   },
   en: {
     skip: "Skip to main content", nav: "Primary navigation", language: "Language selection",
     about: "About", publications: "Publications", experience: "Education", contact: "Contact",
     name: "Guohao Fu", otherName: "傅国浩", affiliation: "Undergraduate · Beijing Institute of Technology",
     intro: "I am an undergraduate in Future Precision Technology at Beijing Institute of Technology.",
-    email: "Email", blog: "Blog", cv: "CV", wechat: "WeChat",
+    email: "Email", cv: "CV", wechat: "WeChat",
     photo: "Guohao Fu in front of an ice waterfall",
-    authorNote: "# Equal contribution · * Corresponding author", abstract: "Abstract & contributions",
+    authorNote: "# Equal contribution · * Corresponding author",
     education: "Education",
-    contactText: "You can reach me by email or WeChat.", backTop: "Back to top ↑",
+    backTop: "Back to top ↑",
   },
 } as const;
 
@@ -49,7 +61,6 @@ export default function Home() {
     <div className="site" id="top" data-language={language}>
       <a className="skip-link" href="#content">{c.skip}</a>
       <header className="site-header">
-        <a className="wordmark" href="#top">Guohao Fu<span aria-hidden="true">.</span></a>
         <nav aria-label={c.nav}>
           <a href="#about">{c.about}</a><a href="#publications">{c.publications}</a>
           <a href="#journey">{c.experience}</a><a href="#contact">{c.contact}</a>
@@ -68,36 +79,39 @@ export default function Home() {
             <p className="affiliation">{c.affiliation}</p>
           </div>
           <figure className="portrait">
-            <img src="guohao-waterfall.jpg" alt={c.photo} width="180" height="224" fetchPriority="high" />
+            <img src="guohao-waterfall.jpg" alt={c.photo} width="164" height="208" fetchPriority="high" />
           </figure>
           <div className="intro-body">
             <p>{c.intro}</p>
             <div className="profile-links">
-              <a href="mailto:lenfu674@gmail.com">{c.email}</a>
-              <a href="https://github.com/lenfgh" {...externalProps}>GitHub</a>
-              <a href="guohao-fu-cv.pdf" {...externalProps}>{c.cv}<span aria-hidden="true"> ↗</span></a>
-              <a href="https://lenfgh.github.io/elflen/" {...externalProps}>{c.blog}<span aria-hidden="true"> ↗</span></a>
+              <a href="mailto:lenfu674@gmail.com"><Icon name="mail" />{c.email}</a>
+              <a href="https://github.com/lenfgh" {...externalProps}><Icon name="code" />GitHub</a>
+              <a href="guohao-fu-cv.pdf" {...externalProps}><Icon name="file" />{c.cv}</a>
             </div>
           </div>
         </section>
 
-        <section className="section" id="publications" aria-labelledby="publications-title">
-          <div className="section-label"><h2 id="publications-title">{c.publications}</h2><p>{c.authorNote}</p></div>
-          <div className="publication-list">
-            {publications.map((publication) => <article className="publication" key={publication.index}>
-              <p className="venue">{publication.venue[language]}</p>
-              <h3><a href={publication.links[0].href} {...externalProps}>{publication.title}</a></h3>
-              <p className="authors">{publication.authors}</p>
-              <div className="publication-actions">
-                <div className="publication-links">
-                  {publication.links.map((link) => <a key={link.label} href={link.href} {...externalProps}>{link.label}<span aria-hidden="true"> ↗</span></a>)}
-                </div>
-                <details className="abstract"><summary>{c.abstract}</summary>
-                  <p>{publication.summary[language]}</p><p className="contribution">{publication.role[language]}</p>
-                </details>
+        <section className="section publications-section" id="publications" aria-labelledby="publications-title">
+          <div className="section-heading"><h2 id="publications-title">{c.publications}</h2><p>{c.authorNote}</p></div>
+          {publicationYears.map((year) => (
+            <section className="publication-year" key={year} aria-labelledby={`year-${year}`}>
+              <h3 className="year-label" id={`year-${year}`}>{year}</h3>
+              <div className="publication-list">
+                {publications.filter((paper) => paper.publishedAt.startsWith(year)).map((publication) => (
+                  <article className="publication" key={publication.index}>
+                    <h4><a href={publication.links[0].href} {...externalProps}>{publication.title}</a></h4>
+                    <p className="authors">{publication.authors}</p>
+                    <p className="venue">{publication.venue[language]}</p>
+                    <div className="publication-actions">
+                      <div className="publication-links">
+                        {publication.links.map((link) => <a key={link.label} href={link.href} {...externalProps}>{link.label}<Icon name="arrow" /></a>)}
+                      </div>
+                    </div>
+                  </article>
+                ))}
               </div>
-            </article>)}
-          </div>
+            </section>
+          ))}
         </section>
 
         <section className="section" id="journey" aria-labelledby="experience-title">
@@ -113,10 +127,9 @@ export default function Home() {
         <section className="section contact-section" id="contact" aria-labelledby="contact-title">
           <h2 id="contact-title">{c.contact}</h2>
           <div>
-            <p>{c.contactText}</p>
             <dl className="contact-list">
-              <div><dt>{c.email}</dt><dd><a href="mailto:lenfu674@gmail.com">lenfu674@gmail.com</a></dd></div>
-              <div><dt>{c.wechat}</dt><dd><span className="wechat-id">QDZM5296</span></dd></div>
+              <div><dt><Icon name="mail" />{c.email}</dt><dd><a href="mailto:lenfu674@gmail.com">lenfu674@gmail.com</a></dd></div>
+              <div><dt><Icon name="chat" />{c.wechat}</dt><dd><span className="wechat-id">QDZM5296</span></dd></div>
             </dl>
           </div>
         </section>
