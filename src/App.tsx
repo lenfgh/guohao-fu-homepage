@@ -44,21 +44,28 @@ const copy = {
   },
 } as const;
 
-function initialLanguage(): Language {
-  try { return window.localStorage.getItem(languageStorageKey) === "en" ? "en" : "zh"; }
-  catch { return "zh"; }
-}
-
 export default function Home() {
-  const [language, setLanguage] = useState<Language>(initialLanguage);
+  const [language, setLanguage] = useState<Language>("zh");
+  const [languageReady, setLanguageReady] = useState(false);
   const c = copy[language];
 
   useEffect(() => {
+    try {
+      const savedLanguage = window.localStorage.getItem(languageStorageKey);
+      if (savedLanguage === "zh" || savedLanguage === "en") setLanguage(savedLanguage);
+    } catch {
+      // The initial static page remains usable when storage is unavailable.
+    }
+    setLanguageReady(true);
+  }, []);
+
+  useEffect(() => {
     document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
-    document.title = language === "zh" ? "傅国浩 · Guohao Fu" : "Guohao Fu · 傅国浩";
+    document.title = "Guohao Fu (傅国浩) | Academic Homepage";
+    if (!languageReady) return;
     try { window.localStorage.setItem(languageStorageKey, language); }
     catch { /* The language switch remains usable when storage is unavailable. */ }
-  }, [language]);
+  }, [language, languageReady]);
 
   return (
     <div className="site" id="top" data-language={language}>
@@ -140,7 +147,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer><span>© {new Date().getFullYear()} Guohao Fu</span><a href="#top">{c.backTop}</a></footer>
+      <footer><span>© 2026 Guohao Fu</span><a href="#top">{c.backTop}</a></footer>
     </div>
   );
 }

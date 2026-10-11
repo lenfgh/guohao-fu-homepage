@@ -22,3 +22,7 @@ npm run build
 ```
 
 The site is deployed automatically to GitHub Pages from the `main` branch.
+
+The production build prerenders the complete homepage into `dist/index.html`, so profile and publication content are readable without JavaScript. React hydrates this snapshot and restores the saved language preference after the initial render.
+
+Search metadata and the canonical address are defined in `index.html`. Keep `public/sitemap.xml` in sync with the canonical address and update its `lastmod` when homepage content changes.
